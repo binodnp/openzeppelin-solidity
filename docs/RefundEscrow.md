@@ -1,4 +1,6 @@
-﻿# RefundEscrow (RefundEscrow.sol)
+# RefundEscrow (RefundEscrow.sol)
+
+View Source: [contracts/payment/escrow/RefundEscrow.sol](../contracts/payment/escrow/RefundEscrow.sol)
 
 **↗ Extends: [ConditionalEscrow](ConditionalEscrow.md)**
 
@@ -7,7 +9,7 @@
 Escrow that holds funds for a beneficiary, deposited from multiple
 parties.
 
-## Enums
+**Enums**
 ### State
 
 ```js
@@ -24,6 +26,7 @@ enum State {
 ```js
 enum RefundEscrow.State private _state;
 address private _beneficiary;
+
 ```
 
 **Events**
@@ -35,18 +38,18 @@ event RefundsEnabled();
 
 ## Functions
 
-- [state](#state)
-- [beneficiary](#beneficiary)
-- [deposit](#deposit)
-- [close](#close)
-- [enableRefunds](#enablerefunds)
-- [beneficiaryWithdraw](#beneficiarywithdraw)
-- [withdrawalAllowed](#withdrawalallowed)
+- [state()](#state)
+- [beneficiary()](#beneficiary)
+- [deposit(address refundee)](#deposit)
+- [close()](#close)
+- [enableRefunds()](#enablerefunds)
+- [beneficiaryWithdraw()](#beneficiarywithdraw)
+- [withdrawalAllowed(address payee)](#withdrawalallowed)
 
 ### state
 
 ```js
-function state() public view
+function state() public
 returns(enum RefundEscrow.State)
 ```
 
@@ -54,16 +57,26 @@ returns(enum RefundEscrow.State)
 
 the current state of the escrow.
 
+**Arguments**
+
+| Name        | Type           | Description  |
+| ------------- |------------- | -----|
+
 ### beneficiary
 
 ```js
-function beneficiary() public view
+function beneficiary() public
 returns(address)
 ```
 
 **Returns**
 
 the beneficiary of the escrow.
+
+**Arguments**
+
+| Name        | Type           | Description  |
+| ------------- |------------- | -----|
 
 ### deposit
 
@@ -72,7 +85,7 @@ the beneficiary of the escrow.
 Stores funds that may later be refunded.
 
 ```js
-function deposit(address refundee) public payable payable
+function deposit(address refundee) public payable
 ```
 
 **Arguments**
@@ -87,24 +100,39 @@ Allows for the beneficiary to withdraw their funds, rejecting
 further deposits.
 
 ```js
-function close() public onlyPrimary
+function close() public undefined onlyPrimary 
 ```
+
+**Arguments**
+
+| Name        | Type           | Description  |
+| ------------- |------------- | -----|
 
 ### enableRefunds
 
 Allows for refunds to take place, rejecting further deposits.
 
 ```js
-function enableRefunds() public onlyPrimary
+function enableRefunds() public undefined onlyPrimary 
 ```
+
+**Arguments**
+
+| Name        | Type           | Description  |
+| ------------- |------------- | -----|
 
 ### beneficiaryWithdraw
 
 Withdraws the beneficiary's funds.
 
 ```js
-function beneficiaryWithdraw() public
+function beneficiaryWithdraw() public undefined
 ```
+
+**Arguments**
+
+| Name        | Type           | Description  |
+| ------------- |------------- | -----|
 
 ### withdrawalAllowed
 
@@ -113,7 +141,7 @@ function beneficiaryWithdraw() public
 Returns whether refundees can withdraw their deposits (be refunded).
 
 ```js
-function withdrawalAllowed(address payee) public view
+function withdrawalAllowed(address payee) public
 returns(bool)
 ```
 
@@ -125,118 +153,118 @@ returns(bool)
 
 ## Contracts
 
-- [OwnableMock](OwnableMock.md)
-- [RefundableCrowdsale](RefundableCrowdsale.md)
-- [ERC20SucceedingMock](ERC20SucceedingMock.md)
-- [SampleCrowdsaleToken](SampleCrowdsaleToken.md)
-- [PaymentSplitter](PaymentSplitter.md)
-- [ERC20Migrator](ERC20Migrator.md)
-- [Roles](Roles.md)
-- [MerkleProof](MerkleProof.md)
-- [CappedCrowdsale](CappedCrowdsale.md)
-- [TokenVesting](TokenVesting.md)
-- [ERC165Checker](ERC165Checker.md)
-- [FinalizableCrowdsale](FinalizableCrowdsale.md)
-- [IERC165](IERC165.md)
-- [Arrays](Arrays.md)
-- [Math](Math.md)
-- [SupportsInterfaceWithLookupMock](SupportsInterfaceWithLookupMock.md)
-- [IncreasingPriceCrowdsale](IncreasingPriceCrowdsale.md)
-- [ERC20Pausable](ERC20Pausable.md)
-- [ERC721MetadataMintable](ERC721MetadataMintable.md)
-- [TokenTimelock](TokenTimelock.md)
-- [MintedCrowdsale](MintedCrowdsale.md)
-- [ERC721Mintable](ERC721Mintable.md)
-- [ERC20Burnable](ERC20Burnable.md)
-- [IERC721Receiver](IERC721Receiver.md)
-- [ERC721Mock](ERC721Mock.md)
-- [SafeMath](SafeMath.md)
-- [IncreasingPriceCrowdsaleImpl](IncreasingPriceCrowdsaleImpl.md)
-- [ReentrancyAttack](ReentrancyAttack.md)
-- [MinterRoleMock](MinterRoleMock.md)
-- [ReentrancyMock](ReentrancyMock.md)
-- [ERC165NotSupported](ERC165NotSupported.md)
-- [ERC20Mock](ERC20Mock.md)
-- [AllowanceCrowdsaleImpl](AllowanceCrowdsaleImpl.md)
-- [MerkleProofWrapper](MerkleProofWrapper.md)
-- [SimpleToken](SimpleToken.md)
-- [ERC721Enumerable](ERC721Enumerable.md)
-- [ERC721FullMock](ERC721FullMock.md)
-- [PauserRole](PauserRole.md)
-- [CrowdsaleMock](CrowdsaleMock.md)
-- [ERC165](ERC165.md)
-- [ERC721Pausable](ERC721Pausable.md)
-- [EventEmitter](EventEmitter.md)
-- [Counter](Counter.md)
-- [ERC20Mintable](ERC20Mintable.md)
-- [FinalizableCrowdsaleImpl](FinalizableCrowdsaleImpl.md)
-- [ERC721Burnable](ERC721Burnable.md)
-- [RefundEscrow](RefundEscrow.md)
-- [CapperRole](CapperRole.md)
-- [IndividuallyCappedCrowdsaleImpl](IndividuallyCappedCrowdsaleImpl.md)
-- [AddressImpl](AddressImpl.md)
-- [SafeERC20](SafeERC20.md)
-- [ERC721ReceiverMock](ERC721ReceiverMock.md)
-- [ERC721PausableMock](ERC721PausableMock.md)
-- [Address](Address.md)
-- [CappedCrowdsaleImpl](CappedCrowdsaleImpl.md)
-- [PullPayment](PullPayment.md)
-- [TimedCrowdsale](TimedCrowdsale.md)
-- [RefundableCrowdsaleImpl](RefundableCrowdsaleImpl.md)
-- [ERC721](ERC721.md)
-- [PauserRoleMock](PauserRoleMock.md)
-- [ReentrancyGuard](ReentrancyGuard.md)
-- [Secondary](Secondary.md)
-- [TimedCrowdsaleImpl](TimedCrowdsaleImpl.md)
-- [ERC165Mock](ERC165Mock.md)
-- [PullPaymentMock](PullPaymentMock.md)
-- [PausableMock](PausableMock.md)
-- [IERC721Metadata](IERC721Metadata.md)
-- [ERC20WithMetadataMock](ERC20WithMetadataMock.md)
-- [MintedCrowdsaleImpl](MintedCrowdsaleImpl.md)
-- [ERC721Full](ERC721Full.md)
-- [Crowdsale](Crowdsale.md)
-- [ERC20FailingMock](ERC20FailingMock.md)
-- [ERC20BurnableMock](ERC20BurnableMock.md)
-- [ConditionalEscrowMock](ConditionalEscrowMock.md)
-- [SignerRole](SignerRole.md)
-- [Pausable](Pausable.md)
-- [Escrow](Escrow.md)
-- [ArraysImpl](ArraysImpl.md)
-- [ConditionalEscrow](ConditionalEscrow.md)
-- [MinterRole](MinterRole.md)
-- [ERC20WithMetadata](ERC20WithMetadata.md)
-- [ERC721Metadata](ERC721Metadata.md)
-- [ERC20PausableMock](ERC20PausableMock.md)
-- [ERC165InterfacesSupported](ERC165InterfacesSupported.md)
-- [ERC165CheckerMock](ERC165CheckerMock.md)
-- [SignerRoleMock](SignerRoleMock.md)
-- [ECDSA](ECDSA.md)
-- [IERC721Full](IERC721Full.md)
-- [ERC721MintableBurnableImpl](ERC721MintableBurnableImpl.md)
-- [MathMock](MathMock.md)
-- [ERC20Detailed](ERC20Detailed.md)
-- [AllowanceCrowdsale](AllowanceCrowdsale.md)
-- [PostDeliveryCrowdsaleImpl](PostDeliveryCrowdsaleImpl.md)
-- [ERC721Holder](ERC721Holder.md)
-- [CounterImpl](CounterImpl.md)
-- [SampleCrowdsale](SampleCrowdsale.md)
-- [IERC721](IERC721.md)
-- [ECDSAMock](ECDSAMock.md)
-- [IERC721Enumerable](IERC721Enumerable.md)
-- [CapperRoleMock](CapperRoleMock.md)
-- [Ownable](Ownable.md)
-- [RolesMock](RolesMock.md)
-- [SignatureBouncerMock](SignatureBouncerMock.md)
-- [ERC20](ERC20.md)
-- [IERC20](IERC20.md)
-- [SignatureBouncer](SignatureBouncer.md)
-- [IndividuallyCappedCrowdsale](IndividuallyCappedCrowdsale.md)
-- [ERC20Capped](ERC20Capped.md)
-- [ERC20DetailedMock](ERC20DetailedMock.md)
-- [SafeMathMock](SafeMathMock.md)
-- [ERC20MintableMock](ERC20MintableMock.md)
-- [SafeERC20Helper](SafeERC20Helper.md)
-- [PostDeliveryCrowdsale](PostDeliveryCrowdsale.md)
-- [ERC20TokenMetadata](ERC20TokenMetadata.md)
-- [SecondaryMock](SecondaryMock.md)
+* [Address](Address.md)
+* [AddressImpl](AddressImpl.md)
+* [AllowanceCrowdsale](AllowanceCrowdsale.md)
+* [AllowanceCrowdsaleImpl](AllowanceCrowdsaleImpl.md)
+* [Arrays](Arrays.md)
+* [ArraysImpl](ArraysImpl.md)
+* [CappedCrowdsale](CappedCrowdsale.md)
+* [CappedCrowdsaleImpl](CappedCrowdsaleImpl.md)
+* [CapperRole](CapperRole.md)
+* [CapperRoleMock](CapperRoleMock.md)
+* [ConditionalEscrow](ConditionalEscrow.md)
+* [ConditionalEscrowMock](ConditionalEscrowMock.md)
+* [Counter](Counter.md)
+* [CounterImpl](CounterImpl.md)
+* [Crowdsale](Crowdsale.md)
+* [CrowdsaleMock](CrowdsaleMock.md)
+* [ECDSA](ECDSA.md)
+* [ECDSAMock](ECDSAMock.md)
+* [ERC165](ERC165.md)
+* [ERC165Checker](ERC165Checker.md)
+* [ERC165CheckerMock](ERC165CheckerMock.md)
+* [ERC165InterfacesSupported](ERC165InterfacesSupported.md)
+* [ERC165Mock](ERC165Mock.md)
+* [ERC165NotSupported](ERC165NotSupported.md)
+* [ERC20](ERC20.md)
+* [ERC20Burnable](ERC20Burnable.md)
+* [ERC20BurnableMock](ERC20BurnableMock.md)
+* [ERC20Capped](ERC20Capped.md)
+* [ERC20Detailed](ERC20Detailed.md)
+* [ERC20DetailedMock](ERC20DetailedMock.md)
+* [ERC20FailingMock](ERC20FailingMock.md)
+* [ERC20Migrator](ERC20Migrator.md)
+* [ERC20Mintable](ERC20Mintable.md)
+* [ERC20MintableMock](ERC20MintableMock.md)
+* [ERC20Mock](ERC20Mock.md)
+* [ERC20Pausable](ERC20Pausable.md)
+* [ERC20PausableMock](ERC20PausableMock.md)
+* [ERC20SucceedingMock](ERC20SucceedingMock.md)
+* [ERC20TokenMetadata](ERC20TokenMetadata.md)
+* [ERC20WithMetadata](ERC20WithMetadata.md)
+* [ERC20WithMetadataMock](ERC20WithMetadataMock.md)
+* [ERC721](ERC721.md)
+* [ERC721Burnable](ERC721Burnable.md)
+* [ERC721Enumerable](ERC721Enumerable.md)
+* [ERC721Full](ERC721Full.md)
+* [ERC721FullMock](ERC721FullMock.md)
+* [ERC721Holder](ERC721Holder.md)
+* [ERC721Metadata](ERC721Metadata.md)
+* [ERC721MetadataMintable](ERC721MetadataMintable.md)
+* [ERC721Mintable](ERC721Mintable.md)
+* [ERC721MintableBurnableImpl](ERC721MintableBurnableImpl.md)
+* [ERC721Mock](ERC721Mock.md)
+* [ERC721Pausable](ERC721Pausable.md)
+* [ERC721PausableMock](ERC721PausableMock.md)
+* [ERC721ReceiverMock](ERC721ReceiverMock.md)
+* [Escrow](Escrow.md)
+* [EventEmitter](EventEmitter.md)
+* [FinalizableCrowdsale](FinalizableCrowdsale.md)
+* [FinalizableCrowdsaleImpl](FinalizableCrowdsaleImpl.md)
+* [IERC165](IERC165.md)
+* [IERC20](IERC20.md)
+* [IERC721](IERC721.md)
+* [IERC721Enumerable](IERC721Enumerable.md)
+* [IERC721Full](IERC721Full.md)
+* [IERC721Metadata](IERC721Metadata.md)
+* [IERC721Receiver](IERC721Receiver.md)
+* [IncreasingPriceCrowdsale](IncreasingPriceCrowdsale.md)
+* [IncreasingPriceCrowdsaleImpl](IncreasingPriceCrowdsaleImpl.md)
+* [IndividuallyCappedCrowdsale](IndividuallyCappedCrowdsale.md)
+* [IndividuallyCappedCrowdsaleImpl](IndividuallyCappedCrowdsaleImpl.md)
+* [Math](Math.md)
+* [MathMock](MathMock.md)
+* [MerkleProof](MerkleProof.md)
+* [MerkleProofWrapper](MerkleProofWrapper.md)
+* [MintedCrowdsale](MintedCrowdsale.md)
+* [MintedCrowdsaleImpl](MintedCrowdsaleImpl.md)
+* [MinterRole](MinterRole.md)
+* [MinterRoleMock](MinterRoleMock.md)
+* [Ownable](Ownable.md)
+* [OwnableMock](OwnableMock.md)
+* [Pausable](Pausable.md)
+* [PausableMock](PausableMock.md)
+* [PauserRole](PauserRole.md)
+* [PauserRoleMock](PauserRoleMock.md)
+* [PaymentSplitter](PaymentSplitter.md)
+* [PostDeliveryCrowdsale](PostDeliveryCrowdsale.md)
+* [PostDeliveryCrowdsaleImpl](PostDeliveryCrowdsaleImpl.md)
+* [PullPayment](PullPayment.md)
+* [PullPaymentMock](PullPaymentMock.md)
+* [ReentrancyAttack](ReentrancyAttack.md)
+* [ReentrancyGuard](ReentrancyGuard.md)
+* [ReentrancyMock](ReentrancyMock.md)
+* [RefundableCrowdsale](RefundableCrowdsale.md)
+* [RefundableCrowdsaleImpl](RefundableCrowdsaleImpl.md)
+* [RefundEscrow](RefundEscrow.md)
+* [Roles](Roles.md)
+* [RolesMock](RolesMock.md)
+* [SafeERC20](SafeERC20.md)
+* [SafeERC20Helper](SafeERC20Helper.md)
+* [SafeMath](SafeMath.md)
+* [SafeMathMock](SafeMathMock.md)
+* [SampleCrowdsale](SampleCrowdsale.md)
+* [SampleCrowdsaleToken](SampleCrowdsaleToken.md)
+* [Secondary](Secondary.md)
+* [SecondaryMock](SecondaryMock.md)
+* [SignatureBouncer](SignatureBouncer.md)
+* [SignatureBouncerMock](SignatureBouncerMock.md)
+* [SignerRole](SignerRole.md)
+* [SignerRoleMock](SignerRoleMock.md)
+* [SimpleToken](SimpleToken.md)
+* [SupportsInterfaceWithLookupMock](SupportsInterfaceWithLookupMock.md)
+* [TimedCrowdsale](TimedCrowdsale.md)
+* [TimedCrowdsaleImpl](TimedCrowdsaleImpl.md)
+* [TokenTimelock](TokenTimelock.md)
+* [TokenVesting](TokenVesting.md)
